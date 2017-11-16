@@ -3,6 +3,10 @@
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Underscore may be freely distributed under the MIT license.
 
+/** // TODO
+ * a =>  避免动态分配内存 ex: 数组声明定义长度
+ */
+
 (function () {
 
   // Baseline setup
@@ -25,10 +29,10 @@
   // Create quick reference variables for speed access to core prototypes.
   // TODO 缓存部分原型上的方法，减少查询原型次数
   /**
-   * push => 
-   * slice => 
-   * toString => 
-   * hasOwnProperty => 
+   * push => 添加元素进数组，return length
+   * slice => 提取字符串或数组的一部分，return new string
+   * toString => return string
+   * hasOwnProperty => 对象是否具有指定的属性作为自身（不继承）属性，return boolean
    */
   var
     push = ArrayProto.push,
@@ -38,6 +42,13 @@
 
   // All **ECMAScript 5** native function implementations that we hope to use
   // are declared here.
+  // TODO 原生方法，区分浏览器兼容用
+  /**
+   * isArray => 判断是否为数组，return boolean
+   * keys => 提取对象自身可枚举属性，return array
+   * bind => 方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列
+   * create => 通过指定的原型对象及其属性创建新对象
+   */
   var
     nativeIsArray = Array.isArray,
     nativeKeys = Object.keys,
@@ -49,6 +60,7 @@
 
   // Create a safe reference to the Underscore object for use below.
   var _ = function (obj) {
+    // 函数存在则直接返回
     if (obj instanceof _) return obj;
     if (!(this instanceof _)) return new _(obj);
     this._wrapped = obj;

@@ -1,3 +1,9 @@
+/*
+ * @Author: Alihanniba 
+ * @Date: 2017-11-16 16:30:20 
+ * @Last Modified by:   Alihanniba 
+ * @Last Modified time: 2017-11-16 16:30:20 
+ */
                       __
                       /\ \                                                         __
      __  __    ___    \_\ \     __   _ __   ____    ___    ___   _ __    __       /\_\    ____
@@ -13,18 +19,18 @@
 # Source-code-analysis
 
 #### 完成
-- 无
+- Never
 #### 进行中
-- [underscore](https://github.com/alihanniba/Source-code-analysis/blob/master/underscore/underscore-analysis-1.8.3.js)
+- [Underscore](https://github.com/alihanniba/Source-code-analysis/blob/master/underscore/underscore-analysis-1.8.3.js)
 #### 未进行
-- [zepto](https://github.com/alihanniba/Source-code-analysis/blob/master/zepto/zepto-analysis-1.2.0.js)
-- [backbone](https://github.com/alihanniba/Source-code-analysis/blob/master/backbone/backbone-analysis-1.3.3.js)
-- [lodash](https://github.com/alihanniba/Source-code-analysis/blob/master/lodash/lodash-analysis-4.17.4.js)
+- [Zepto](https://github.com/alihanniba/Source-code-analysis/blob/master/zepto/zepto-analysis-1.2.0.js)
+- [Backbone](https://github.com/alihanniba/Source-code-analysis/blob/master/backbone/backbone-analysis-1.3.3.js)
+- [Lodash](https://github.com/alihanniba/Source-code-analysis/blob/master/lodash/lodash-analysis-4.17.4.js)
 #### 顺序
-- [underscore](https://github.com/alihanniba/Source-code-analysis/blob/master/underscore/underscore-analysis-1.8.3.js)
-- [zepto](https://github.com/alihanniba/Source-code-analysis/blob/master/zepto/zepto-analysis-1.2.0.js)
-- [backbone](https://github.com/alihanniba/Source-code-analysis/blob/master/backbone/backbone-analysis-1.3.3.js)
-- [lodash](https://github.com/alihanniba/Source-code-analysis/blob/master/lodash/lodash-analysis-4.17.4.js)
+- [Underscore](https://github.com/alihanniba/Source-code-analysis/blob/master/underscore/underscore-analysis-1.8.3.js)
+- [Zepto](https://github.com/alihanniba/Source-code-analysis/blob/master/zepto/zepto-analysis-1.2.0.js)
+- [Backbone](https://github.com/alihanniba/Source-code-analysis/blob/master/backbone/backbone-analysis-1.3.3.js)
+- [Lodash](https://github.com/alihanniba/Source-code-analysis/blob/master/lodash/lodash-analysis-4.17.4.js)
 #### 参考
 - [Underscore github 仓库](https://github.com/jashkenas/underscore)
 - [hanzichi-Underscore.js 源码解读 & 系列文章](https://github.com/hanzichi/underscore-analysis)

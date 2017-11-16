@@ -60,9 +60,11 @@
 
   // Create a safe reference to the Underscore object for use below.
   var _ = function (obj) {
-    // 函数存在则直接返回
+    // 如果obj是_的一个实例则直接返回
     if (obj instanceof _) return obj;
+    // 否则实例化
     if (!(this instanceof _)) return new _(obj);
+    // 保存实例
     this._wrapped = obj;
   };
 

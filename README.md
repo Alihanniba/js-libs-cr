@@ -13,7 +13,7 @@
 # Source-code-analysis
 
 #### 参考
-[underscore github 仓库](https://github.com/jashkenas/underscore)
-[hanzichi-Underscore.js 源码解读 & 系列文章](https://github.com/hanzichi/underscore-analysis)
+- [underscore github 仓库](https://github.com/jashkenas/underscore)
+- [hanzichi-Underscore.js 源码解读 & 系列文章](https://github.com/hanzichi/underscore-analysis)
 #### 文献
-[MDN Web 文档](https://developer.mozilla.org/zh-CN/)
+- [MDN Web 文档](https://developer.mozilla.org/zh-CN/)

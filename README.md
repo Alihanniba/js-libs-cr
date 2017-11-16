@@ -12,11 +12,24 @@
 
 # Source-code-analysis
 
+#### 完成
+- 无
+#### 进行中
+- [underscore](https://github.com/alihanniba/Source-code-analysis/blob/master/underscore/underscore-analysis-1.8.3.js)
+#### 未进行
+- [zepto](https://github.com/alihanniba/Source-code-analysis/blob/master/zepto/zepto-analysis-1.2.0.js)
+- [backbone](https://github.com/alihanniba/Source-code-analysis/blob/master/backbone/backbone-analysis-1.3.3.js)
+- [lodash](https://github.com/alihanniba/Source-code-analysis/blob/master/lodash/lodash-analysis-4.17.4.js)
 #### 顺序
 - [underscore](https://github.com/alihanniba/Source-code-analysis/blob/master/underscore/underscore-analysis-1.8.3.js)
 - [zepto](https://github.com/alihanniba/Source-code-analysis/blob/master/zepto/zepto-analysis-1.2.0.js)
+- [backbone](https://github.com/alihanniba/Source-code-analysis/blob/master/backbone/backbone-analysis-1.3.3.js)
+- [lodash](https://github.com/alihanniba/Source-code-analysis/blob/master/lodash/lodash-analysis-4.17.4.js)
 #### 参考
-- [underscore github 仓库](https://github.com/jashkenas/underscore)
+- [Underscore github 仓库](https://github.com/jashkenas/underscore)
 - [hanzichi-Underscore.js 源码解读 & 系列文章](https://github.com/hanzichi/underscore-analysis)
+- [Zepto Documentation](http://zeptojs.com/)
+- [Lodash Documentation](https://lodash.com/docs/4.17.4)
+
 #### 文献
 - [MDN Web 文档](https://developer.mozilla.org/zh-CN/)

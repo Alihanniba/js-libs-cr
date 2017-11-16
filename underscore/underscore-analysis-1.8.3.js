@@ -1,9 +1,11 @@
 /*
  * @Author: Alihanniba 
  * @Date: 2017-11-16 16:32:24 
- * @Last Modified by:   Alihanniba 
- * @Last Modified time: 2017-11-16 16:32:24 
+ * @Last Modified by: Alihanniba
+ * @Last Modified time: 2017-11-16 16:37:34
  */
+
+// TODO 中文注释 by Alihanniba  https://github.com/alihanniba
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors

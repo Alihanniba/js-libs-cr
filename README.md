@@ -33,6 +33,7 @@
 #### 参考
 - [Underscore github 仓库](https://github.com/jashkenas/underscore)
 - [hanzichi-Underscore.js 源码解读 & 系列文章](https://github.com/hanzichi/underscore-analysis)
+- [Underscore Documentation](http://underscorejs.org/)
 - [Zepto Documentation](http://zeptojs.com/)
 - [Lodash Documentation](https://lodash.com/docs/4.17.4)
 

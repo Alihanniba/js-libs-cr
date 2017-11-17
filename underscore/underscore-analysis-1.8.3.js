@@ -2,9 +2,12 @@
  * @Author: Alihanniba 
  * @Date: 2017-11-16 16:32:24 
  * @Last Modified by: Alihanniba
- * @Last Modified time: 2017-11-16 16:37:34
+ * @Last Modified time: 2017-11-17 14:54:59
  */
 
+/**
+* a => 有时候刻意用字符串开头是因为这样我的编辑器注释才会高亮，无其他意义
+*/
 // TODO 中文注释 by Alihanniba  https://github.com/alihanniba
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
@@ -15,6 +18,7 @@
  * a =>  避免动态分配内存 ex: 数组声明定义长度
  */
 
+// TODO 自执行函数沙盒
 (function() {
 	// Baseline setup
 	// --------------
@@ -76,6 +80,12 @@
 	// Export the Underscore object for **Node.js**, with
 	// backwards-compatibility for the old `require()` API. If we're in
 	// the browser, add `_` as a global object.
+	// TODO 判断当前环境， Node 或 Brower, 根据不同环境导出 underscore 对象
+	/**
+	 * exports 不支持IE浏览器
+	 * exports => Brower
+	 * module.exports => Node
+	 */
 	if (typeof exports !== 'undefined') {
 		if (typeof module !== 'undefined' && module.exports) {
 			exports = module.exports = _;
@@ -84,14 +94,16 @@
 	} else {
 		root._ = _;
 	}
-
+	// TODO 版本号
 	// Current version.
 	_.VERSION = '1.8.3';
 
 	// Internal function that returns an efficient (for current engines) version
 	// of the passed-in callback, to be repeatedly applied in other Underscore
 	// functions.
+	// TODO 绑定上下文,在 context 中执行 func 方法，并传递参数
 	var optimizeCb = function(func, context, argCount) {
+		// 如果没有传上下文，直接返回函数
 		if (context === void 0) return func;
 		switch (argCount == null ? 3 : argCount) {
 			case 1:
@@ -119,6 +131,16 @@
 	// A mostly-internal function to generate callbacks that can be applied
 	// to each element in a collection, returning the desired result — either
 	// identity, an arbitrary callback, a property matcher, or a property accessor.
+	// TODO 
+	/**
+	 * param => value
+	 * a => 相当于一个 node 中间件函数
+	 * a => 判断是否是函数或对象
+	 * a => 如果是函数，则绑定上下文
+	 * a => 如果是对象 ? 
+	 * a => 否则，取值
+	 */
+	
 	var cb = function(value, context, argCount) {
 		if (value == null) return _.identity;
 		if (_.isFunction(value)) return optimizeCb(value, context, argCount);
@@ -157,6 +179,12 @@
 		return result;
 	};
 
+	// TODO 取属性值
+	/**
+	 * key => length,
+	 * obj => ['alihanniba', '花一个无所']
+	 * return obj[key] => 2
+	 */
 	var property = function(key) {
 		return function(obj) {
 			return obj == null ? void 0 : obj[key];
@@ -167,8 +195,11 @@
 	// should be iterated as an array or as an object
 	// Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
 	// Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+	// TODO 最大的安全值 => The Number.MAX_SAFE_INTEGER constant represents the maximum safe integer in JavaScript (253 - 1).
 	var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+	// 获取长度
 	var getLength = property('length');
+	// 判断类数组对象
 	var isArrayLike = function(collection) {
 		var length = getLength(collection);
 		return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
@@ -180,14 +211,24 @@
 	// The cornerstone, an `each` implementation, aka `forEach`.
 	// Handles raw objects in addition to array-likes. Treats all
 	// sparse array-likes as if they were dense.
+	// TODO => each 迭代
+	/**
+	 * obj => 被迭代对象
+	 * iteratee => 迭代函数, 迭代元素列表, 依次产生
+	 * context => 上下文对象
+	 * if 函数执行，每个 iteratee 的调用都有三个参数调用 （element, index, list） || (value, key, list)
+	 */
 	_.each = _.forEach = function(obj, iteratee, context) {
 		iteratee = optimizeCb(iteratee, context);
 		var i, length;
 		if (isArrayLike(obj)) {
+			// 类数组对象执行
 			for (i = 0, length = obj.length; i < length; i++) {
 				iteratee(obj[i], i, obj);
 			}
 		} else {
+			// 对象执行
+			// 调用keys方法，把key值 组成一个数组，然后遍历
 			var keys = _.keys(obj);
 			for (i = 0, length = keys.length; i < length; i++) {
 				iteratee(obj[keys[i]], keys[i], obj);
@@ -197,13 +238,17 @@
 	};
 
 	// Return the results of applying the iteratee to each element.
+	// TODO => map 遍历
 	_.map = _.collect = function(obj, iteratee, context) {
 		iteratee = cb(iteratee, context);
+		// 取键返回数组
 		var keys = !isArrayLike(obj) && _.keys(obj),
 			length = (keys || obj).length,
+			// 构建新数据，提前声明长度
 			results = Array(length);
 		for (var index = 0; index < length; index++) {
 			var currentKey = keys ? keys[index] : index;
+			// 构造返回数组
 			results[index] = iteratee(obj[currentKey], currentKey, obj);
 		}
 		return results;

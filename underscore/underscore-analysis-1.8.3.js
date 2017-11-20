@@ -2,7 +2,7 @@
  * @Author: Alihanniba 
  * @Date: 2017-11-16 16:32:24 
  * @Last Modified by: Alihanniba
- * @Last Modified time: 2017-11-17 14:54:59
+ * @Last Modified time: 2017-11-20 16:51:09
  */
 
 /**
@@ -131,7 +131,7 @@
 	// A mostly-internal function to generate callbacks that can be applied
 	// to each element in a collection, returning the desired result — either
 	// identity, an arbitrary callback, a property matcher, or a property accessor.
-	// TODO 
+	// TODO
 	/**
 	 * param => value
 	 * a => 相当于一个 node 中间件函数
@@ -140,7 +140,7 @@
 	 * a => 如果是对象 ? 
 	 * a => 否则，取值
 	 */
-	
+
 	var cb = function(value, context, argCount) {
 		if (value == null) return _.identity;
 		if (_.isFunction(value)) return optimizeCb(value, context, argCount);
@@ -343,7 +343,9 @@
 	// Determine if the array or object contains a given item (using `===`).
 	// Aliased as `includes` and `include`.
 	_.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
+		// 判断对象类型，取对象值，返回数组类型
 		if (!isArrayLike(obj)) obj = _.values(obj);
+		// 容错
 		if (typeof fromIndex != 'number' || guard) fromIndex = 0;
 		return _.indexOf(obj, item, fromIndex) >= 0;
 	};
@@ -520,8 +522,10 @@
 	};
 
 	// Return the number of elements in an object.
+	// TODO 判断大小
 	_.size = function(obj) {
 		if (obj == null) return 0;
+		// 类数组对象直接取 length ，对象类型则转化 key 数组再取 length
 		return isArrayLike(obj) ? obj.length : _.keys(obj).length;
 	};
 

@@ -1,5 +1,17 @@
+/*
+ * @Author: Alihanniba 
+ * @Date: 2017-11-20 16:55:36 
+ * @Last Modified by: Alihanniba
+ * @Last Modified time: 2017-11-20 19:27:51
+ */
+
+// TODO 中文注释 by Eli7 | Alihanniba  https://github.com/alihanniba
+
 /* Zepto v1.2.0 - zepto event ajax form ie - zeptojs.com/license */
+// TODO 自执行函数 黑盒 封闭
 (function(global, factory) {
+	// 检测当前环境是否支持AMD
+	// define(id?,dependencies?,factory);
 	if (typeof define === 'function' && define.amd)
 		define(function() {
 			return factory(global);
@@ -7,6 +19,7 @@
 	else factory(global);
 })(this, function(window) {
 	var Zepto = (function() {
+		// 提前声明变量
 		var undefined,
 			key,
 			$,
@@ -68,6 +81,10 @@
 				frameborder: 'frameBorder',
 				contenteditable: 'contentEditable',
 			},
+			// 判断是否是数组
+			// 如果支持原生函数  Array.isArray  则用原生
+			// 否则，用instanceof
+			// 用 Object.prototype.toString.call(data[item]) === '[object Array]' 是不是更好？
 			isArray =
 				Array.isArray ||
 				function(object) {
@@ -92,11 +109,13 @@
 			temp && tempParent.removeChild(element);
 			return match;
 		};
-
+		// 封装类型检测函数
+		// 此处 == 非精确等于涵盖  null ,'', undefined, false等等
 		function type(obj) {
 			return obj == null ? String(obj) : class2type[toString.call(obj)] || 'object';
 		}
 
+		// 判断是否是 function 类型
 		function isFunction(value) {
 			return type(value) == 'function';
 		}
@@ -106,13 +125,14 @@
 		function isDocument(obj) {
 			return obj != null && obj.nodeType == obj.DOCUMENT_NODE;
 		}
+		// 判断是否是 object 类型
 		function isObject(obj) {
 			return type(obj) == 'object';
 		}
 		function isPlainObject(obj) {
 			return isObject(obj) && !isWindow(obj) && Object.getPrototypeOf(obj) == Object.prototype;
 		}
-
+		// 判断 类数组 对象
 		function likeArray(obj) {
 			var length = !!obj && 'length' in obj && obj.length,
 				type = $.type(obj);

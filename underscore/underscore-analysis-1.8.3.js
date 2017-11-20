@@ -2,13 +2,13 @@
  * @Author: Alihanniba 
  * @Date: 2017-11-16 16:32:24 
  * @Last Modified by: Alihanniba
- * @Last Modified time: 2017-11-20 16:51:09
+ * @Last Modified time: 2017-11-20 16:56:00
  */
 
 /**
 * a => 有时候刻意用字符串开头是因为这样我的编辑器注释才会高亮，无其他意义
 */
-// TODO 中文注释 by Alihanniba  https://github.com/alihanniba
+// TODO 中文注释 by Eli7 | Alihanniba  https://github.com/alihanniba
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors

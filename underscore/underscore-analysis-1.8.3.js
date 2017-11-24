@@ -2,7 +2,7 @@
  * @Author: Alihanniba 
  * @Date: 2017-11-16 16:32:24 
  * @Last Modified by: Alihanniba
- * @Last Modified time: 2017-11-24 13:30:56
+ * @Last Modified time: 2017-11-24 13:52:43
  */
 
 /**
@@ -163,12 +163,12 @@
 			for (var index = 1; index < length; index++) {
 				// 拿到参数
 				var source = arguments[index],
-				// keysFunc => _.keys || _.allKeys
-				// 提取key值
+					// keysFunc => _.keys || _.allKeys
+					// 提取key值
 					keys = keysFunc(source),
 					// 获取长度
 					l = keys.length;
-					// 遍历键值对
+				// 遍历键值对
 				for (var i = 0; i < l; i++) {
 					var key = keys[i];
 					// 仅当undefinedOnly == false 或 obj[key]不存在时
@@ -187,7 +187,7 @@
 		// 如果浏览器支持Object.create, 则用Object.create 构造函数
 		if (nativeCreate) return nativeCreate(prototype);
 		// Ctor 一个函数表达式，
-		// 赋值给 Ctor 的原型 
+		// 赋值给 Ctor 的原型
 		Ctor.prototype = prototype;
 		// new 一个实例
 		var result = new Ctor();
@@ -257,9 +257,13 @@
 
 	// Return the results of applying the iteratee to each element.
 	// TODO => map 遍历
+	// 遍历数组或对象的每个元素
 	_.map = _.collect = function(obj, iteratee, context) {
 		iteratee = cb(iteratee, context);
 		// 取键返回数组
+		// 乍一看没看准
+		// 如果 obj 是对象，keys = _.keys(obj)为数组类型，length = keys.length
+		// 如果 obj 是数组，则 keys = false，length = obj.length
 		var keys = !isArrayLike(obj) && _.keys(obj),
 			length = (keys || obj).length,
 			// 构建新数据，提前声明长度
@@ -276,6 +280,7 @@
 	function createReduce(dir) {
 		// Optimized iterator function as using arguments.length
 		// in the main function will deoptimize the, see #1991.
+		// 递归调用
 		function iterator(obj, iteratee, memo, keys, index, length) {
 			for (; index >= 0 && index < length; index += dir) {
 				var currentKey = keys ? keys[index] : index;

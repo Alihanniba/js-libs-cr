@@ -2,7 +2,7 @@
  * @Author: Alihanniba 
  * @Date: 2017-11-16 16:32:24 
  * @Last Modified by: Alihanniba
- * @Last Modified time: 2017-11-20 16:56:00
+ * @Last Modified time: 2017-11-24 13:30:56
  */
 
 /**
@@ -105,6 +105,8 @@
 	var optimizeCb = function(func, context, argCount) {
 		// 如果没有传上下文，直接返回函数
 		if (context === void 0) return func;
+		// 否则，执行下面
+		// 如果没有传 argCount ，则执行3
 		switch (argCount == null ? 3 : argCount) {
 			case 1:
 				return function(value) {
@@ -152,16 +154,24 @@
 	};
 
 	// An internal function for creating assigner functions.
+	// 柯里化
 	var createAssigner = function(keysFunc, undefinedOnly) {
 		return function(obj) {
 			var length = arguments.length;
+			// 如果传入的参数个数 < 2 或参数为 null ，则直接返回原函数
 			if (length < 2 || obj == null) return obj;
 			for (var index = 1; index < length; index++) {
+				// 拿到参数
 				var source = arguments[index],
+				// keysFunc => _.keys || _.allKeys
+				// 提取key值
 					keys = keysFunc(source),
+					// 获取长度
 					l = keys.length;
+					// 遍历键值对
 				for (var i = 0; i < l; i++) {
 					var key = keys[i];
+					// 仅当undefinedOnly == false 或 obj[key]不存在时
 					if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
 				}
 			}
@@ -169,13 +179,21 @@
 		};
 	};
 
+	// TODO 创建一个新函数 继承自 参数对象
 	// An internal function for creating a new object that inherits from another.
 	var baseCreate = function(prototype) {
+		// 判断参数不是对象，则返回空对象
 		if (!_.isObject(prototype)) return {};
+		// 如果浏览器支持Object.create, 则用Object.create 构造函数
 		if (nativeCreate) return nativeCreate(prototype);
+		// Ctor 一个函数表达式，
+		// 赋值给 Ctor 的原型 
 		Ctor.prototype = prototype;
+		// new 一个实例
 		var result = new Ctor();
+		// 重置函数表达式的原型
 		Ctor.prototype = null;
+		// 返回实例
 		return result;
 	};
 
